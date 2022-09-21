@@ -23,7 +23,7 @@ function getDay(date, lang) {
       6: 'Суббота',
     },
   };
-  return dayNames.lang.date.getDay();
+  return dayNames[lang][date.getDay()];
 }
 
 // Принимает объект даты, и должно вернуть компоненты даты в виде строки.
@@ -46,8 +46,10 @@ month – месяц от 0 до 11.
 */
 function getLastDayOfMonth(year, month) {
   let date = new Date(year, month+1);
-  return date.setDate(date.getDate()-1);
+  date.setDate(date.getDate() - 1);
+  return date.getDate();
 }
+
 
 module.exports = {
   getDay,
